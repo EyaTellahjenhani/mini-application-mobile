@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Mini Application Android</string>
+    <string name="InputEmail">Email</string>
+    <string name="InputPassword">Password</string>
+    <string name="ButtonLogin">Login</string>
+    <string name="ForgotPassword">Forgot Password</string>
+    <string name="NewAccountText">Don\'t have an account ? </string>
+    <string name="Register_link">Sign up</string>
+    <string name="TextSignUp">Sign up</string>
+    <string name="InputLastName">Last Name</string>
+    <string name="InputFirstName">First Name</string>
+    <string name="ButtonSignUp">Sign up</string>
+    <string name="ButtonSend">Send</string>
+    <string name="TextSendEmail">Please enter your e-mail address or user name</string>
+</resources>
