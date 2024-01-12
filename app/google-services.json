@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1086922233141",
+    "project_id": "shoopy-ecf2e",
+    "storage_bucket": "shoopy-ecf2e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1086922233141:android:cc1c0965f4f33b7696287c",
+        "android_client_info": {
+          "package_name": "com.example.miniapplicationandroid"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDasqZd829tms1BBx6WcsVLpTZkAjnJXkQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

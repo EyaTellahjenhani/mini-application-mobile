@@ -187,7 +187,7 @@
                 android:background="@drawable/orange_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Buy now"
+                android:text="Add to cart"
                 android:textColor="@color/white"
                 android:textSize="18sp"/>
 

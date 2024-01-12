@@ -1,5 +1,6 @@
 package com.example.miniapplicationandroid;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -7,9 +8,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.miniapplicationandroid.Activity.HomePage;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 
 public class LoginPage extends AppCompatActivity {
 
@@ -18,6 +25,7 @@ public class LoginPage extends AppCompatActivity {
     private Button ButtonLogin;
     private TextView SignUpLink;
     private TextView Forgot_password_link;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +63,20 @@ public class LoginPage extends AppCompatActivity {
                     InputPassword.setError("Password must be at lease 8 character");
                 }else {
                     InputPassword.setError(null);
-                    Intent i = new Intent(LoginPage.this, HomePage.class);
-                    startActivity(i);
+                    FirebaseAuth auth = FirebaseAuth.getInstance();
+                    auth.signInWithEmailAndPassword(InputEmail.getEditText().getText().toString(), InputPassword.getEditText().getText().toString())
+                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        startActivity(new Intent(LoginPage.this,HomePage.class));
+                                    } else {
+                                        // Sign in failed
+                                        Toast.makeText(LoginPage.this,"Email or password are invalid",Toast.LENGTH_LONG).show();
+
+                                    }
+                                }
+                });
                 }
             }
         });
