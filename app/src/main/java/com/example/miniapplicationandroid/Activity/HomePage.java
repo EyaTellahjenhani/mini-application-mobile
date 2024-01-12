@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import com.example.miniapplicationandroid.Adapter.PupolarAdapter;
 import com.example.miniapplicationandroid.Domain.PopularDomain;
@@ -24,6 +27,16 @@ public class HomePage extends AppCompatActivity {
         setContentView(R.layout.activity_home_page);
 
         initRecyclerView();
+        bottomNavigation();
+    }
+
+    private void bottomNavigation() {
+        LinearLayout homeBtn=findViewById(R.id.homeBtn);
+        LinearLayout cartBtn=findViewById(R.id.cartBtn);
+
+        homeBtn.setOnClickListener(v -> startActivity(new Intent(HomePage.this,HomePage.class)));
+
+        cartBtn.setOnClickListener(v -> startActivity(new Intent(HomePage.this, CartActivity.class)));
     }
 
     private void initRecyclerView() {

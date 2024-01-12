@@ -1,6 +1,7 @@
 package com.example.miniapplicationandroid.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.GranularRoundedCorners;
+import com.example.miniapplicationandroid.Activity.DetailActivity;
 import com.example.miniapplicationandroid.Domain.PopularDomain;
 import com.example.miniapplicationandroid.R;
 
@@ -36,7 +38,7 @@ public class PupolarAdapter extends RecyclerView.Adapter<PupolarAdapter.Viewhold
     @Override
     public void onBindViewHolder(@NonNull PupolarAdapter.Viewholder holder, int position) {
     holder.titleTxt.setText(item.get(position).getTitle());
-    holder.feeTxt.setText("$"+item.get(position).getPrice());
+    holder.feeTxt.setText("DT"+item.get(position).getPrice());
     holder.scoreTxt.setText(""+item.get(position).getScore());
 
         int drawableResourceId = holder.itemView.getResources().getIdentifier(item.get(position).getPicUrl(),
@@ -45,6 +47,12 @@ public class PupolarAdapter extends RecyclerView.Adapter<PupolarAdapter.Viewhold
                 .load(drawableResourceId)
                 .transform(new GranularRoundedCorners(30,30,0,0))
                 .into(holder.pic);
+
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent=new Intent(holder.itemView.getContext(), DetailActivity.class);
+            intent.putExtra("object",item.get(position));
+            holder.itemView.getContext().startActivity(intent);
+        });
     }
 
     @Override

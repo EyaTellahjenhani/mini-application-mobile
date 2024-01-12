@@ -60,6 +60,13 @@ public class PopularDomain implements Serializable {
         this.score = score;
     }
 
+    public int getNumberInCart() {
+        return numberInCart;
+    }
+
+    public void setNumberInCart(int numberInCart) {
+        this.numberInCart = numberInCart;
+    }
 
     public double getPrice() {
         return price;
